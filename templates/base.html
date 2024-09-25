@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        html, body {
+            height: 100%; /* Garantir que o corpo e o HTML ocupem 100% da altura da tela */
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000000;
+            color: #e0e0e0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #086A87;
+            color: #e0e0e0;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #e0e0e0; /* Cor dos links */
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: black;
+            transform: scale(1.05);
+        }
+
+        .content {
+            flex: 1; /* Permitir que o conteúdo expanda para preencher o espaço disponível */
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #121212; /* Cor de fundo escura para o conteúdo */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: #086A87; /* Cor de fundo mais escura para o rodapé */
+            color: #e0e0e0; /* Cor do texto no rodapé */
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #007bff;
+        }
+
+        h1, h2, h3 {
+            color: #e0e0e0; /* Cor dos cabeçalhos */
+        }
+
+        p {
+            margin-bottom: 1.5em;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">Sobre</a></li>
+                <li><a href="{{ url_for('projects') }}">Projetos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Condão. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
